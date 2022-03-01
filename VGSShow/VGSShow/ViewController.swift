@@ -18,17 +18,24 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var stackViewCVVNo: UIStackView!
     @IBOutlet weak var stackViewCardNumber: UIStackView!
-    @IBOutlet weak var stackViewCardExp: UIStackView!
+    @IBOutlet weak var stackViewCardExpMonth: UIStackView!
+    @IBOutlet weak var stackViewCardExpYear: UIStackView!
+
     @IBOutlet var lblCVV: VGSLabel!
     @IBOutlet var lblCardNumber: VGSLabel!
-    @IBOutlet var lblExpDate: VGSLabel!
-    
+    @IBOutlet var lblExpMonth: VGSLabel!
+    @IBOutlet var lblExpYear: VGSLabel!
+
     var path = ""
     var vgsVaultID = ""
     var vgsCardID = ""
     var vgsShowToken = ""
     var vgsEnvironmentType = ""
     
+    //replace "YourVaultID" with your VGS VaultID
+    //set VGSEnvironment.live for LIVE
+    var vgsShowObj = VGSShow(id: "YourVaultID", environment: VGSEnvironment.sandbox)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -61,17 +68,21 @@ extension ViewController: UITextFieldDelegate {
 
 extension ViewController {
     
-    func configureVGS(vgsShowObj: VGSShow) {
+    func configureVGS() {
         lblCVV = VGSLabel()
         lblCardNumber = VGSLabel()
-        lblExpDate = VGSLabel()
+        lblExpMonth = VGSLabel()
+        lblExpYear = VGSLabel()
+
         vgsShowObj.subscribe(lblCVV)
         vgsShowObj.subscribe(lblCardNumber)
-        vgsShowObj.subscribe(lblExpDate)
-        configureVGSUI(vgsShowObj: vgsShowObj)
+        vgsShowObj.subscribe(lblExpMonth)
+        vgsShowObj.subscribe(lblExpYear)
+
+        configureVGSUI()
     }
     
-    func configureVGSUI(vgsShowObj: VGSShow) {
+    func configureVGSUI() {
         let paddings = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
                 
         let textColor = UIColor.white
@@ -93,9 +104,12 @@ extension ViewController {
         lblCVV.placeholder = "***"
         lblCVV.contentPath = "cvv"
         
-        lblExpDate.placeholder = "***"
-        lblExpDate.contentPath = "expiry"
+        lblExpMonth.placeholder = "**"
+        lblExpMonth.contentPath = "expiryMonth"
         
+        lblExpYear.placeholder = "****"
+        lblExpYear.contentPath = "expiryYear"
+
         // Create regex object, split card number to XXXX-XXXX-XXXX-XXXX format.
         do {
             let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
@@ -125,13 +139,18 @@ extension ViewController {
         
         lblCVV.placeholderStyle.font = cvvFont
         lblCVV.font =  cvvFont
-
-        lblExpDate.placeholderStyle.font = expFont
-        lblExpDate.font =  expFont
+        lblCVV.textAlignment = NSTextAlignment.right
+        
+        lblExpMonth.placeholderStyle.font = expFont
+        lblExpMonth.font =  expFont
+        
+        lblExpYear.placeholderStyle.font = expFont
+        lblExpYear.font =  expFont
         
         stackViewCVVNo.addArrangedSubview(lblCVV)
         stackViewCardNumber.addArrangedSubview(lblCardNumber)
-        stackViewCardExp.addArrangedSubview(lblExpDate)
+        stackViewCardExpMonth.addArrangedSubview(lblExpMonth)
+        stackViewCardExpYear.addArrangedSubview(lblExpYear)
     }
 }
 
@@ -172,7 +191,7 @@ extension ViewController {
         }
         
         if  vgsVaultID.isEmpty || vgsCardID.isEmpty || vgsShowToken.isEmpty || vgsEnvironmentType.isEmpty {
-            let alert = UIAlertController(title: "", message: "All fields are mendatory", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "", message: "All fields are mandatory", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
@@ -185,14 +204,14 @@ extension ViewController {
 extension ViewController: VGSLabelDelegate {
     func requestData() {
         let environment = self.vgsEnvironmentType == "Sandbox" ? VGSEnvironment.sandbox : VGSEnvironment.live
-        let vgsShowObj = VGSShow(id: self.vgsVaultID, environment: environment.rawValue)
+        vgsShowObj = VGSShow(id: self.vgsVaultID, environment: environment.rawValue)
         self.path = "/v1/card/\(self.vgsCardID)/show"
 
-        configureVGS(vgsShowObj: vgsShowObj)
+        configureVGS()
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
-            vgsShowObj.customHeaders = ["sd-show-token": self.vgsShowToken]
-            vgsShowObj.request(path: self.path,
+            self.vgsShowObj.customHeaders = ["sd-show-token": self.vgsShowToken]
+            self.vgsShowObj.request(path: self.path,
                             method: .get) { (requestResult) in
                 
                 switch requestResult {
@@ -200,6 +219,9 @@ extension ViewController: VGSLabelDelegate {
                         debugPrint("vgsshow success, code: \(code)")
                     case .failure(let code, let error):
                         debugPrint("vgsshow failed, code: \(code), error: \(String(describing: error))")
+                        let alert = UIAlertController(title: "VGS Show Error", message: "Invalid data", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                 }
             }
         }

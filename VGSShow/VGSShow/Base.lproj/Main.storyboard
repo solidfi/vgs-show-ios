@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -198,8 +199,8 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="left" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vXN-nd-5Um">
-                                                        <rect key="frame" x="18.5" y="73.5" width="246" height="17"/>
+                                                    <stackView opaque="NO" contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="vXN-nd-5Um">
+                                                        <rect key="frame" x="18.5" y="63.5" width="246" height="17"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="9Ou-Q3-Kc7"/>
@@ -207,17 +208,17 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIy-fS-HdB" userLabel="expirycvvtitle">
-                                                        <rect key="frame" x="20" y="95.5" width="110" height="17"/>
+                                                        <rect key="frame" x="20" y="95.5" width="150" height="17"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="EXP DATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4s-B2-lG5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="89" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="129" height="17"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXv-J5-13D">
-                                                                <rect key="frame" x="89" y="0.0" width="21" height="17"/>
+                                                                <rect key="frame" x="129" y="0.0" width="21" height="17"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -226,25 +227,31 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="110" id="5zC-Xl-GAi"/>
+                                                            <constraint firstAttribute="width" constant="150" id="5zC-Xl-GAi"/>
                                                             <constraint firstAttribute="height" constant="16.719999999999999" id="kOg-u0-IPV"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="mbd-VD-3dg" userLabel="expirycvvvalue">
-                                                        <rect key="frame" x="20" y="112.5" width="145" height="16.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mbd-VD-3dg" userLabel="expirycvvvalue">
+                                                        <rect key="frame" x="20" y="112.5" width="81" height="16.5"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ceg-eC-p4R">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="16.5"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceg-eC-p4R">
+                                                                <rect key="frame" x="0.0" y="0.0" width="20" height="16.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="60" id="hRQ-Gh-P0J"/>
+                                                                    <constraint firstAttribute="width" constant="20" id="hRQ-Gh-P0J"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jWC-hP-1wQ">
-                                                                <rect key="frame" x="85" y="0.0" width="60" height="16.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5m-JK-6VE">
+                                                                <rect key="frame" x="28" y="0.0" width="5" height="16.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUO-Ha-fLY">
+                                                                <rect key="frame" x="41" y="0.0" width="40" height="16.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="60" id="CKz-km-U9T"/>
+                                                                    <constraint firstAttribute="width" constant="40" id="9dW-8d-yH6"/>
                                                                 </constraints>
                                                             </stackView>
                                                         </subviews>
@@ -252,11 +259,15 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16.719999999999999" id="6hh-Y8-h0M"/>
                                                             <constraint firstAttribute="bottom" secondItem="ceg-eC-p4R" secondAttribute="bottom" id="8pd-eI-DdL"/>
-                                                            <constraint firstAttribute="bottom" secondItem="jWC-hP-1wQ" secondAttribute="bottom" id="JiX-lR-ZFl"/>
                                                             <constraint firstItem="ceg-eC-p4R" firstAttribute="top" secondItem="mbd-VD-3dg" secondAttribute="top" id="PYM-Mr-7Q1"/>
-                                                            <constraint firstAttribute="trailing" secondItem="jWC-hP-1wQ" secondAttribute="trailing" id="jpl-Bb-qrq"/>
-                                                            <constraint firstItem="jWC-hP-1wQ" firstAttribute="top" secondItem="mbd-VD-3dg" secondAttribute="top" id="khC-wj-WbW"/>
                                                             <constraint firstItem="ceg-eC-p4R" firstAttribute="leading" secondItem="mbd-VD-3dg" secondAttribute="leading" id="klz-eQ-uA0"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEu-oz-5mx">
+                                                        <rect key="frame" x="146" y="112.5" width="40" height="16.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="t35-dj-5S3"/>
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReW-eY-9g7">
@@ -298,10 +309,11 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="gti-KA-vWu" secondAttribute="trailing" id="3Jo-qB-Hcb"/>
-                                                    <constraint firstItem="NIy-fS-HdB" firstAttribute="top" secondItem="vXN-nd-5Um" secondAttribute="bottom" constant="5" id="3jK-8s-WgY"/>
+                                                    <constraint firstItem="NIy-fS-HdB" firstAttribute="top" secondItem="vXN-nd-5Um" secondAttribute="bottom" constant="15" id="3jK-8s-WgY"/>
                                                     <constraint firstItem="mbd-VD-3dg" firstAttribute="top" secondItem="NIy-fS-HdB" secondAttribute="bottom" id="7zB-5y-SSI"/>
                                                     <constraint firstItem="vXN-nd-5Um" firstAttribute="leading" secondItem="2EL-7p-zPR" secondAttribute="leading" constant="18.5" id="C2C-Z6-m0w"/>
                                                     <constraint firstAttribute="bottom" secondItem="gti-KA-vWu" secondAttribute="bottom" id="FcR-yk-pGV"/>
+                                                    <constraint firstItem="tEu-oz-5mx" firstAttribute="height" secondItem="mbd-VD-3dg" secondAttribute="height" id="I5t-gu-4kO"/>
                                                     <constraint firstAttribute="trailing" secondItem="ReW-eY-9g7" secondAttribute="trailing" constant="94" id="IWa-u2-eoX"/>
                                                     <constraint firstAttribute="bottom" secondItem="ReW-eY-9g7" secondAttribute="bottom" constant="15" id="JLT-Dn-8j1"/>
                                                     <constraint firstItem="4NG-1r-mrq" firstAttribute="leading" secondItem="2EL-7p-zPR" secondAttribute="leading" constant="18.5" id="PdF-WD-Ofk"/>
@@ -311,9 +323,11 @@
                                                     <constraint firstItem="ReW-eY-9g7" firstAttribute="leading" secondItem="2EL-7p-zPR" secondAttribute="leading" constant="18.649999999999999" id="hoi-fr-CPt"/>
                                                     <constraint firstItem="4NG-1r-mrq" firstAttribute="top" secondItem="2EL-7p-zPR" secondAttribute="top" constant="17" id="nhA-r0-opd"/>
                                                     <constraint firstItem="NIy-fS-HdB" firstAttribute="centerY" secondItem="2EL-7p-zPR" secondAttribute="centerY" id="oET-ph-yYg"/>
+                                                    <constraint firstItem="tEu-oz-5mx" firstAttribute="top" secondItem="mbd-VD-3dg" secondAttribute="top" id="pOB-op-POv"/>
                                                     <constraint firstAttribute="height" constant="208" id="qQn-Zq-T1O"/>
                                                     <constraint firstItem="gti-KA-vWu" firstAttribute="top" secondItem="2EL-7p-zPR" secondAttribute="top" id="qrd-D9-xxS"/>
                                                     <constraint firstItem="mbd-VD-3dg" firstAttribute="leading" secondItem="2EL-7p-zPR" secondAttribute="leading" constant="20" id="uJV-6R-tSr"/>
+                                                    <constraint firstItem="tEu-oz-5mx" firstAttribute="leading" secondItem="mbd-VD-3dg" secondAttribute="trailing" constant="45" id="wWh-Cj-Nsb"/>
                                                     <constraint firstAttribute="trailing" secondItem="4NG-1r-mrq" secondAttribute="trailing" constant="10" id="yNX-x7-XJX"/>
                                                 </constraints>
                                             </view>
@@ -361,8 +375,9 @@
                     <navigationItem key="navigationItem" id="j19-uT-fRg"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
-                        <outlet property="stackViewCVVNo" destination="jWC-hP-1wQ" id="Jx7-R8-opJ"/>
-                        <outlet property="stackViewCardExp" destination="ceg-eC-p4R" id="Ng7-0d-J1s"/>
+                        <outlet property="stackViewCVVNo" destination="tEu-oz-5mx" id="8ir-be-Ixe"/>
+                        <outlet property="stackViewCardExpMonth" destination="ceg-eC-p4R" id="ImX-U8-A08"/>
+                        <outlet property="stackViewCardExpYear" destination="tUO-Ha-fLY" id="VtM-ff-Smp"/>
                         <outlet property="stackViewCardNumber" destination="vXN-nd-5Um" id="HSD-Rk-9pA"/>
                         <outlet property="txtCardID" destination="MzK-RJ-Z6Y" id="cyE-gA-bJr"/>
                         <outlet property="txtEnvironment" destination="xz5-Bm-QoZ" id="0uY-mX-mXY"/>
