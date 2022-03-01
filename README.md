@@ -24,7 +24,7 @@ git clone https://github.com/solidfi/vgs-show-ios.git
 ```
 - Open project and run in Simulator
 ```groovy
-1. Launch `Xcode` and open the project `vgs-show-ios/VGSShow.xcodeproj`
+1. Launch `Xcode` and open the project `vgs-show-ios-main/VGSShow/VGSShow.xcodeproj`
 2. Run in Simulator
 ```
 
