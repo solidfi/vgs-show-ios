@@ -37,7 +37,7 @@ In order to start the project we need below parameters. All fields are mandatory
 - VGS Show Token : You will get it from the "/show-token" api from the backend
 - Environment :  Select live or sandbox environment
 
-Notes: VGS Token can be used only once to get data. You need to call "/show-token" api to generate new VGS Token    
+Notes: VGS Show Token can be used only once to get data. You need to call "/show-token" api to generate new VGS Token    
 
 ## Tooling
 - iOS 13.0 +
