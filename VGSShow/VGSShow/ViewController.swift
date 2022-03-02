@@ -139,13 +139,28 @@ extension ViewController {
         
         lblCVV.placeholderStyle.font = cvvFont
         lblCVV.font =  cvvFont
-        lblCVV.textAlignment = NSTextAlignment.right
         
         lblExpMonth.placeholderStyle.font = expFont
         lblExpMonth.font =  expFont
         
         lblExpYear.placeholderStyle.font = expFont
         lblExpYear.font =  expFont
+        
+        for subView in stackViewCVVNo.subviews {
+            subView.removeFromSuperview()
+        }
+        
+        for subView in stackViewCardNumber.subviews {
+            subView.removeFromSuperview()
+        }
+        
+        for subView in stackViewCardExpMonth.subviews {
+            subView.removeFromSuperview()
+        }
+        
+        for subView in stackViewCardExpYear.subviews {
+            subView.removeFromSuperview()
+        }
         
         stackViewCVVNo.addArrangedSubview(lblCVV)
         stackViewCardNumber.addArrangedSubview(lblCardNumber)
