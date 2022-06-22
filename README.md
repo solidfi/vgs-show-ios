@@ -7,8 +7,8 @@ VGS Show Sample for iOS
 - [Getting started](#getting-started)
 - [Parameters](#parameters)
 - [Tooling](#tooling)
-- [API Reference](#api-reference)
 - [Packages](#third-party-libraries)
+- [API Reference](#api-reference)
 
 
 ## Overview
@@ -44,11 +44,11 @@ Notes: VGS Show Token can be used only once to get data. You need to call "/show
 - Xcode 11 +
 - Swift 5.0 +
 
-## API Reference
-- VGS Show Integration : https://www.verygoodsecurity.com/docs/vgs-show/ios-sdk
-- Solid API Integration : https://documenter.getpostman.com/view/13543869/TWDfEDwX#ce8c0e57-0dcf-45ea-87d8-6f03a302e027
-
 ## Packages
 - VGSShowSDK
 - IQKeyboardManager
 
+
+## API Reference
+- VGS Show Integration : https://www.verygoodsecurity.com/docs/vgs-show/ios-sdk
+- Solid API Integration : https://www.solidfi.com/docs/introduction
