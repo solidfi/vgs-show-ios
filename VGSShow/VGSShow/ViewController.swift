@@ -220,7 +220,7 @@ extension ViewController: VGSLabelDelegate {
     func requestData() {
         let environment = self.vgsEnvironmentType == "Sandbox" ? VGSEnvironment.sandbox : VGSEnvironment.live
         vgsShowObj = VGSShow(id: self.vgsVaultID, environment: environment.rawValue)
-        self.path = "/v1/card/\(self.vgsCardID)/show"
+        self.path = "/v2/card/\(self.vgsCardID)/show"
 
         configureVGS()
 
